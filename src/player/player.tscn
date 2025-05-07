@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://inscjq5iuw5l"]
+[gd_scene load_steps=8 format=3 uid="uid://inscjq5iuw5l"]
 
+[ext_resource type="Script" uid="uid://drx8nnsa57php" path="res://src/player/Player.cs" id="1_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://hjxlgfr6fe7w" path="res://assets/art/playerGrey_up1.png" id="1_244u8"]
 [ext_resource type="Texture2D" uid="uid://d3uyqbjthgqm6" path="res://assets/art/playerGrey_up2.png" id="2_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://dsrlfkipa30rk" path="res://assets/art/playerGrey_walk1.png" id="3_jiejy"]
@@ -31,10 +32,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l271a"]
-radius = 26.0
+radius = 27.0
 height = 68.0
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_5f2sf")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
