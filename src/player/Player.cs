@@ -17,5 +17,8 @@ public partial class Player : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		Vector2 velocity = Vector2.Zero;
+
+		
 	}
 }
