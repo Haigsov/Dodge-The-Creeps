@@ -40,6 +40,8 @@ public partial class Player : Area2D
 			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
 
+		ChooseAnimation(animatedSprite2D);
+
 	}
 
 	public void MovePlayer()
@@ -64,6 +66,21 @@ public partial class Player : Area2D
 		if (Input.IsActionPressed("move_up"))
 		{
 			velocity.Y -= 1;
+		}
+	}
+
+	public void ChooseAnimation(AnimatedSprite2D animatedSprite2D)
+	{
+		if (velocity.X != 0)
+		{
+			animatedSprite2D.Animation = "walk";
+			animatedSprite2D.FlipV = false;
+			animatedSprite2D.FlipH = velocity.X < 0;
+		}
+		else if (velocity.Y != 0)
+		{
+			animatedSprite2D.Animation = "up";
+			animatedSprite2D.FlipV = velocity.Y > 0;
 		}
 	}
 }
