@@ -15,6 +15,7 @@ public partial class Player : Area2D
 	{
 		// Gets screen size
 		ScreenSize = GetViewportRect().Size;
+		Hide();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
