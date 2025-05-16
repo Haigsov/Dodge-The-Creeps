@@ -10,6 +10,8 @@ public partial class Player : Area2D
 	public Godot.Vector2 Dir;
 	public Godot.Vector2 ScreenSize;
 	public Godot.Vector2 velocity;
+	[Signal]
+	public delegate void HitEventHandler();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -83,5 +85,22 @@ public partial class Player : Area2D
 			animatedSprite2D.Animation = "up";
 			animatedSprite2D.FlipV = velocity.Y > 0;
 		}
+	}
+
+	public void OnBodyEntered(Node2D body)
+	{
+		// Hides the player after it gets hit by enemy
+		Hide();
+		// Emits hit signal
+		EmitSignal(SignalName.Hit);
+		// Disabling the area's collision shape can cause an error if it happens in the middle of the engine's collision processing. Using set_deferred() tells Godot to wait to disable the shape until it's safe to do so.
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+	}
+
+	public void Start(Godot.Vector2 position)
+	{
+		Show();
+		Position = position;
+		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 	}
 }
