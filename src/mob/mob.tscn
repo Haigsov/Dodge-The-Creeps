@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bie4gvcg2rro5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhlo2"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Mob" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hhlo2")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
