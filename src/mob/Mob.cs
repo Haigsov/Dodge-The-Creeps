@@ -9,8 +9,8 @@ public partial class Mob : RigidBody2D
 	{
 		GravityScale = 0;
 		SetCollisionMaskValue(1, false);
-		AnimatableBody2D animatedSprite2D  = GetNode<AnimatableBody2D>("AnimatedSprite2D");
-		string[] mobTypes = animatedSprite2D.Get(SpriteFrames).GetAnimationNames();
+		AnimatedSprite2D animatedSprite2D  = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		string[] mobTypes = animatedSprite2D.SpriteFrames.GetAnimationNames();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
