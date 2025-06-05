@@ -27,7 +27,6 @@ public partial class Main : Node2D
 		StartTimer.Timeout += OnStartTimerTimeoutSignal;
 		ScoreTimer.Timeout += OnScoreTimerTimeoutSignal;
 		MobTimer.Timeout += OnMobTimerTimeoutSignal;
-		NewGame();
 
 		// Connect StartGame Signal to NewGame().
 		GetNode<Hud>("HUD").StartGame += NewGame;
@@ -37,6 +36,8 @@ public partial class Main : Node2D
 	{
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
+
+		GetNode<Hud>("HUD").ShowGameOver();
 	}
 
 	public void NewGame()
@@ -62,6 +63,7 @@ public partial class Main : Node2D
 	private void OnScoreTimerTimeoutSignal()
 	{
 		_score++;
+		GetNode<Hud>("HUD").UpdateScore(_score);
 	}
 
 	private void OnMobTimerTimeoutSignal()
