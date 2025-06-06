@@ -52,6 +52,8 @@ public partial class Main : Node2D
 		Hud hud = GetNode<Hud>("HUD");
 		hud.UpdateScore(_score);
 		hud.ShowMessage("Get Ready!");
+
+		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
 	}
 
 	private void OnStartTimerTimeoutSignal()
