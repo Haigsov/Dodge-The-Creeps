@@ -38,6 +38,9 @@ public partial class Main : Node2D
 		GetNode<Timer>("ScoreTimer").Stop();
 
 		GetNode<Hud>("HUD").ShowGameOver();
+
+		GetNode<AudioStreamPlayer2D>("Music").Stop();
+        GetNode<AudioStreamPlayer2D>("DeathSound").Play();
 	}
 
 	public void NewGame()
@@ -52,6 +55,7 @@ public partial class Main : Node2D
 		Hud hud = GetNode<Hud>("HUD");
 		hud.UpdateScore(_score);
 		hud.ShowMessage("Get Ready!");
+		GetNode<AudioStreamPlayer2D>("Music").Play();
 
 		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
 	}
